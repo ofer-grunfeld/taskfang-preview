@@ -1,0 +1,65 @@
+/* Taski and the Batch PDF Printer. Animation by ChatGPT (Taski_BatchPrinter_Prototype06), fitted to the site by Claude:
+   page-level preview styles removed, the player scoped to .tp-player, English controls. No JavaScript. */
+.tp-player{color-scheme:light;position:relative;background:#fff;color:#24242c;border:1px solid #e5e4e2;border-radius:24px;padding:22px;overflow:hidden;font-family:system-ui,"Segoe UI",sans-serif;margin-top:32px}
+.tp-player *{box-sizing:border-box}
+.tp-player details{display:inline-block;border:0;border-radius:0;padding:0;background:none;margin:0}
+.tp-player summary,.tp-player .pause{cursor:pointer;font-size:15px}
+.tp-player summary{list-style:none;background:#c2410c;color:#fff;padding:12px 20px;border-radius:30px;font-weight:700;border:0;margin:0}
+.tp-player details[open] summary{border:0;margin:0}
+.tp-player summary::-webkit-details-marker{display:none}
+.tp-player summary:focus-visible,.tp-player #pause:focus-visible+.pause{outline:3px solid #222;outline-offset:4px}
+.tp-player .reset,.tp-player details[open] .play{display:none}.tp-player details[open] .reset{display:inline}
+.tp-player .pause{margin-inline:7px 20px;color:#3f3f46}.tp-player #pause{accent-color:#E8590C;width:18px;height:18px;vertical-align:middle}
+.film{margin-top:24px}.captions{height:72px;position:relative;text-align:center}
+.caption{position:absolute;inset:0;opacity:0;font-size:clamp(22px,3vw,34px);font-weight:800;letter-spacing:-.7px;color:#24242c}
+.caption small{display:block;font-size:17px;font-weight:400;letter-spacing:0;color:#5f5f69;margin-top:8px}
+.ready{opacity:1}.film svg{display:block;width:100%;height:auto;overflow:visible}.output,.alert{opacity:0}.sheet{opacity:0}
+.timeline{height:3px;background:#f4f2ef;border-radius:2px}.timeline i{display:block;width:100%;height:100%;background:#E8590C;transform:scaleX(0);transform-origin:left}
+.tp-player .tp-note{text-align:center;color:#5f5f69;font-size:15px;margin:16px 0 0}
+.head{transform-origin:223px 224px}.arm{transform-box:fill-box;transform-origin:20% 15%}.leg{transform-box:fill-box;transform-origin:50% 0}.tail{transform-origin:188px 298px}.bounce{transform-origin:220px 340px}.button{transform-origin:20px 20px}.film *{animation-play-state:running!important}
+details[open]~.film .ready{opacity:0}details[open]~.film .notice{animation:notice 8s both}details[open]~.film .running{animation:running 8s both}details[open]~.film .pressing{animation:pressing 8s both}details[open]~.film .printing{animation:printing 8s both}details[open]~.film .done{animation:done 8s both}details[open]~.film .travel{animation:travel 8s both}details[open]~.film .bounce{animation:bounce 8s both}details[open]~.film .front{animation:feet 0.24s 5 1.6s}details[open]~.film .back{animation:feet .24s 5 1.6s reverse}details[open]~.film .head{animation:head 8s both}details[open]~.film .alert{animation:notice 8s both}details[open]~.film .button{animation:button 8s both}details[open]~.film .right{animation:right 8s both}details[open]~.film .left{animation:left 8s both}details[open]~.film .output{animation:output 8s both}details[open]~.film .sheet{animation:sheet .55s 4 3.5s}details[open]~.film .timeline i{animation:progress 8s linear both}#pause:checked~.film *{animation-play-state:paused!important}
+@keyframes notice{0%,17%{opacity:1}20%,100%{opacity:0}}@keyframes running{0%,19%{opacity:0}20%,36%{opacity:1}39%,100%{opacity:0}}@keyframes pressing{0%,38%{opacity:0}39%,47%{opacity:1}49%,100%{opacity:0}}@keyframes printing{0%,48%{opacity:0}49%,72%{opacity:1}75%,100%{opacity:0}}@keyframes done{0%,74%{opacity:0;transform:translateY(8px)}78%,100%{opacity:1;transform:translateY(0)}}
+@keyframes travel{0%,20%{transform:translateX(0)}37%,100%{transform:translateX(254px)}}@keyframes bounce{0%,20%,37%,100%{transform:translateY(0) rotate(0)}23%,29%,35%{transform:translateY(-13px) rotate(8deg)}26%,32%{transform:translateY(0) rotate(4deg)}}@keyframes feet{0%,100%{transform:rotate(-22deg)}50%{transform:rotate(25deg)}}@keyframes head{0%,14%{transform:scaleX(-1) rotate(-9deg)}20%,38%{transform:rotate(0)}43%,65%{transform:rotate(6deg)}78%,100%{transform:rotate(-7deg)}}@keyframes button{0%,40%,48%,100%{transform:translateY(0)}43%,46%{transform:translateY(5px)}}
+@keyframes right{0%,38%{transform:translate(0,0)}43%,46%{transform:translate(25px,-24px) rotate(-12deg)}51%,72%{transform:translate(0,0)}77%,83%,89%,95%{transform:translate(-23px,-9px) rotate(-10deg)}80%,86%,92%{transform:translate(-23px,0) rotate(8deg)}98%,100%{transform:translate(-23px,-4px)}}@keyframes left{0%,72%{transform:translate(0,0)}77%,83%,89%,95%{transform:translate(25px,-7px) rotate(-8deg)}80%,86%,92%{transform:translate(25px,-16px) rotate(10deg)}98%,100%{transform:translate(25px,-10px)}}
+@keyframes sheet{0%{opacity:0;transform:translate(0,-4px)}10%{opacity:1}85%{opacity:1;transform:translate(45px,13px)}100%{opacity:0;transform:translate(60px,20px)}}@keyframes output{0%,45%{opacity:0;transform:translate(837px,318px) scaleY(.4)}50%{opacity:1;transform:translate(837px,318px) scaleY(.4)}72%,100%{opacity:1;transform:translate(837px,302px) scaleY(1)}}@keyframes progress{to{transform:scaleX(1)}}
+@media(max-width:600px){.tp-player{padding:16px 10px;border-radius:18px}.tp-player summary{font-size:14px;padding:11px 14px}.tp-player .pause{font-size:13px;margin-inline:4px 0}.captions{height:65px}.tp-player .tp-note{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.film *{animation:none!important}.film .travel{transform:translateX(254px)}.film .output{opacity:1}.film .caption{opacity:0!important}.film .done{opacity:1!important}.film .right{transform:translate(-23px,-4px)}.film .left{transform:translate(25px,-10px)}.film .alert,.film .sheet{opacity:0!important}.timeline{display:none}}
+
+
+
+/* Round02: reuse the exact approved Round15 raster and articulated clipping paths. */
+.o-mouth{display:none}.o-flex{transform-origin:170px 150px}.o-tail{transform-origin:110px 100px}.o-rearNear,.o-rearFar{transform-origin:130px 120px}.o-frontNear,.o-frontFar{transform-origin:225px 120px}.o-neck{transform-origin:269px 90px}
+details[open]~.film .o-flex{animation:original-bound 8s both}
+details[open]~.film .o-rearNear{animation:original-stride .24s 5 1.6s}details[open]~.film .o-rearFar{animation:original-stride .24s 5 1.6s reverse}
+details[open]~.film .o-frontNear{animation:original-near 8s both}details[open]~.film .o-frontFar{animation:original-far 8s both}
+details[open]~.film .o-neck{animation:original-head 8s both}
+@keyframes original-bound{0%,20%,37%,100%{transform:translateY(0)}23%,29%,35%{transform:translateY(-12px)}26%,32%{transform:translateY(0)}}
+@keyframes original-stride{0%,100%{transform:rotate(-18deg)}50%{transform:rotate(18deg)}}
+@keyframes original-head{0%,14%{transform:rotate(-8deg)}20%,70%{transform:rotate(0)}80%,100%{transform:rotate(-6deg)}}
+@keyframes original-near{0%,20%,37%{transform:rotate(0)}23%,29%,35%{transform:rotate(-20deg)}26%,32%{transform:rotate(20deg)}43%,46%{transform:translate(65px,-20px) rotate(-12deg)}52%,70%{transform:rotate(0)}77%,83%,89%,95%{transform:translate(12px,-30px) rotate(-10deg)}80%,86%,92%{transform:translate(12px,-22px) rotate(10deg)}98%,100%{transform:translate(12px,-26px)}}
+@keyframes original-far{0%,20%,37%,70%{transform:rotate(0)}23%,29%,35%{transform:rotate(20deg)}26%,32%{transform:rotate(-20deg)}77%,83%,89%,95%{transform:translate(-24px,-22px) rotate(10deg)}80%,86%,92%{transform:translate(-24px,-30px) rotate(-10deg)}98%,100%{transform:translate(-24px,-26px)}}
+@media(prefers-reduced-motion:reduce){.film .o-frontNear{transform:translate(12px,-26px)}.film .o-frontFar{transform:translate(-24px,-26px)}}
+
+
+/* Round03: raised control; rear-foot pivot lifts Taski only for the press. */
+.o-flex{transform-origin:130px 150px}
+@keyframes original-bound{0%,20%,37%,55%,100%{transform:translateY(0) rotate(0)}23%,29%,35%{transform:translateY(-12px) rotate(0)}26%,32%{transform:translateY(0) rotate(0)}42%,47%{transform:rotate(-35deg)}}
+@keyframes original-near{0%,20%,37%{transform:rotate(0)}23%,29%,35%{transform:rotate(-20deg)}26%,32%{transform:rotate(20deg)}43%,46%{transform:translate(145px,-90px) rotate(-12deg)}55%,70%{transform:rotate(0)}77%,83%,89%,95%{transform:translate(12px,-30px) rotate(-10deg)}80%,86%,92%{transform:translate(12px,-22px) rotate(10deg)}98%,100%{transform:translate(12px,-26px)}}
+
+
+details[open]~.film .o-tail{animation:standing-tail 8s both}@keyframes standing-tail{0%,37%,55%,100%{transform:rotate(0)}42%,47%{transform:rotate(35deg)}}
+
+
+.o-reach{opacity:0}details[open]~.film .o-reach{animation:reach-high 8s both}@keyframes reach-high{0%,38%,52%,100%{opacity:0}43%,46%{opacity:1}}
+
+
+
+/* Prototype06: reserve a safe caption lane left of the raised button.
+   Scoped to the player so integration can retain its existing host styles. */
+.player .captions,.tp-player .captions{height:88px;margin-right:28%;}
+.player .caption small,.tp-player .caption small{line-height:1.45;margin-top:8px;}
+.click-ring{opacity:0;transform-box:fill-box;transform-origin:center;pointer-events:none}
+details[open]~.film .click-ring{animation:single-click 8s both}
+@keyframes single-click{0%,41%{opacity:0;transform:scale(.95)}43%{opacity:1;transform:scale(1)}49%{opacity:0;transform:scale(1.24)}100%{opacity:0;transform:scale(1.24)}}
+@media(max-width:600px){.player .captions,.tp-player .captions{margin-right:0;height:100px}.player .caption,.tp-player .caption{font-size:24px}.player .caption small,.tp-player .caption small{font-size:18px}}
+@media(prefers-reduced-motion:reduce){.click-ring{opacity:0!important}}
